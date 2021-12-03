@@ -12,7 +12,7 @@ spring:
           predicates:
             - Path = /order/**
           filters:
-            - name: CircuitBreaker
+            - name: CircuitBreaker1
               args:
                 name: order-service
                 fallbackUri: forward:/orderFallBack
@@ -21,7 +21,7 @@ spring:
           predicates:
             - Path = /payment/**
           filters:
-            - name: CircuitBreaker
+            - name: CircuitBreaker2
               args:
                 name: payment-service
                 fallbackUri: forward:/paymentFallBack
