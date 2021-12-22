@@ -33,8 +33,8 @@ POST /sandy/default/
 }
 
 STEP 2 -
-Log File - 
-logstash.conf - 
+Log File - https://github.com/sandzotym/Microservice/blob/main/microservice.log
+logstashTest.conf - https://github.com/sandzotym/Microservice/blob/main/logstashTest.conf
 
 Execute Logstash with the .conf file with a -f
 
