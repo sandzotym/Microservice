@@ -1,0 +1,49 @@
+server:
+  port: 8989
+
+#Java based solution - spring.io/projects/spring-cloud-gateway - Getting started:Code
+spring:
+  application:
+    name: CLOUD-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path = /order/**
+          filters:
+            - name: CircuitBreaker1
+              args:
+                name: order-service
+                fallbackUri: forward:/orderFallBack
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path = /payment/**
+          filters:
+            - name: CircuitBreaker2
+              args:
+                name: payment-service
+                fallbackUri: forward:/paymentFallBack
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
+    org.springframework: ERROR
+    com.codebuffer.cloud.gateway: ERROR
