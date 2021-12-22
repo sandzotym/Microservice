@@ -1,0 +1,12 @@
+server:
+  port: 9191
+
+spring:
+  h2:
+    console:
+      enabled: true
+  application:
+    name: ORDER-SERVICE
+
+logging:
+  file: /Users/utsa/IdeaProjects/logs/microservice.log
