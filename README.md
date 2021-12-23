@@ -1,6 +1,5 @@
 # Microservice using Spring Boot & Spring Cloud
 
----------------------------------------------------------
 Implementing -
   - Eureka Discovery
   - API Gateway
@@ -66,6 +65,8 @@ Sleuth generates Metadata for each request which comprises of 4 elements -
   - TraceID (Unique ID that remains same throughout Microservice for particular Request)
   - SpanID (Unique ID per Microservice)
   - Export Flag
+
+Way to implement - Create a Zipkin Project OR Download from https://zipkin.io/pages/quickstart OR Download from Maven
 
 --------------------------------------------------------------------------------------------------
 Postman WS - https://github.com/sandzotym/PostmanWS/blob/main/Microservice.postman_collection.json 
